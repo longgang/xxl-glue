@@ -7,7 +7,7 @@
 ## 一、简介
 
 ### 1.1 概述
-XXL-GLUE 是一个分布式环境下的 "可执行逻辑" 管理平台, 学习简单，扩展JVM的动态语言支持。现已开放源代码并接入多家公司线上产品线，开箱即用。
+XXL-GLUE 是一个分布式环境下的 "可执行逻辑单元" 管理平台, 学习简单，扩展JVM的动态语言支持。现已开放源代码并接入多家公司线上产品线，开箱即用。
 
 >GLUE：即"可执行逻辑"，本质上是一段可执行的代码。GLUE可以方便的嵌入业务代码中, GLUE中逻辑代码支持在线开发、动态推送更新、实时编译生效。
 可以节省部分因为项目编译、打包、部署和重启线上机器所带来的时间和人工消耗, 提高开发效率。
@@ -17,7 +17,7 @@ XXL-GLUE 是一个分布式环境下的 "可执行逻辑" 管理平台, 学习�
 XXL-GLUE在功能上完全可以替代前者，只需要在可执行代码块中返回配置即可，支持返回任意类型配置数据。XXL-GLUE主要作用是托管"可执行逻辑代码"，将会为开发者代码不一样的开发体验。
 
 ### 1.2 特性
-- 1、动态："可执行逻辑"，GLUE支持在线开发、动态推送更新、实时编译生效, 扩展JVM的动态语言支持;
+- 1、动态："可执行逻辑单元（GLUE）"支持在线开发、动态推送更新、实时编译生效, 扩展JVM的动态语言支持;
 - 2、Wed IDE：提供WedIDE，支持在线开发GLUE代码；
 - 3、推送更新：GLUE代码修改后，开发人员可手动触发GLUE更新广播，广播组件将会实时推送GLUE到接入方项目，从而实时更新GLUE；
 - 4、兼容Spring：GLUE代码中支持@Resource和@Autowired两种方式注入Spring容器中服务;
@@ -35,7 +35,7 @@ XXL-GLUE在功能上完全可以替代前者，只需要在可执行代码块中
 源码仓库地址 | Release Download
 --- | ---
 [https://github.com/xuxueli/xxl-glue](https://github.com/xuxueli/xxl-glue) | [Download](https://github.com/xuxueli/xxl-glue/releases)
-[https://git.oschina.net/xuxueli0323/xxl-glue](https://git.oschina.net/xuxueli0323/xxl-glue) | [Download](https://git.oschina.net/xuxueli0323/xxl-glue/releases)  
+[https://gitee.com/xuxueli0323/xxl-glue](https://gitee.com/xuxueli0323/xxl-glue) | [Download](https://gitee.com/xuxueli0323/xxl-glue/releases)  
 
 
 ##### 技术交流群 (仅作技术交流)
@@ -60,7 +60,7 @@ XXL-GLUE在功能上完全可以替代前者，只需要在可执行代码块中
 
 ### 1、初始化数据库
 
-执行数据库建表脚本: /xxl-glue/db/mysql_xxl_glue.sql
+执行数据库建表脚本: /xxl-glue/doc/db/mysql_xxl_glue.sql
 
 ### 2、部署部署"GLUE管理中心"(xxl-glue-admin)
 配置文件位置：xxl-glue-admin/resources/xxl-glue-admin.properties
@@ -118,7 +118,7 @@ xxl.glue.zkserver=127.0.0.1:2181
 
 初始化数据局之后，系统默认生成了三个典型场景的GLUE示例，可以参考GLUE示例开发第一个GLUE（GLUE的三种经典使用场景，可参考 "章节四"）。
 	
-![输入图片说明](https://static.oschina.net/uploads/img/201705/31231732_bzf0.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_bzf0.png "在这里输入图片标题")
     
     
 ### 5、调用Glue
@@ -136,19 +136,19 @@ xxl.glue.zkserver=127.0.0.1:2181
 
     http://localhost:8080/xxl-glue-core-example/
 
-![输入图片说明](https://static.oschina.net/uploads/img/201705/31231741_YHDB.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_YHDB.png "在这里输入图片标题")
 
 
 ## 三、操作详解
 
 ### 1、登陆GLUE
-![输入图片说明](https://static.oschina.net/uploads/img/201705/31233041_IXh1.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_IXh1.png "在这里输入图片标题")
 
 
 ### 2、项目列表
 系统以项目为维度进行GLUE分组管理；可以在 "项目管理" 模块查看系统中的项目列表，默认已经提供了一个 "示例项目"；
 
-![输入图片说明](https://static.oschina.net/uploads/img/201705/31233738_CSqk.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_CSqk.png "在这里输入图片标题")
 
 ### 3、新增项目
 在 "项目管理" 界面，点击右上角 "新增项目" 可以新增项目，项目属性说明如下：
@@ -156,10 +156,10 @@ xxl.glue.zkserver=127.0.0.1:2181
     项目AppName：项目AppName为项目分组标识，在广播刷新GLUE时可指定AppName实现灰度刷新指定AppNamd项目中的GLUE示例。正确格式为：长度4-20位的小写字母、数字和下划线
     项目名称：项目中文名称
 
-![输入图片说明](https://static.oschina.net/uploads/img/201705/31233656_pcdP.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_pcdP.png "在这里输入图片标题")
 
 ### 4、：GLUE列表
-![输入图片说明](https://static.oschina.net/uploads/img/201705/31231732_bzf0.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_bzf0.png "在这里输入图片标题")
 
 ### 5、新建GLUE
 点击右上角 "新建GLUE" 按钮，弹框填写GLUE信息即可新建GLUE，属性介绍如下：
@@ -168,13 +168,13 @@ xxl.glue.zkserver=127.0.0.1:2181
     GLUE：Glue名称，每个GLUE的唯一标示，新建GLUE时将会自动将所项目的AppName作为名称前缀。正确格式为：长度4-20位的大小写字母、数字和下划线
     描述：GLUE的描述介绍信息
 
-![输入图片说明](https://static.oschina.net/uploads/img/201705/31233056_Vz22.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_Vz22.png "在这里输入图片标题")
 
 
 ### 6、开发GLUE代码
 找到新建的GLUE，点击右侧的 “Web IDE” 按钮进入GLUE开发的Wed IDE界面。默认已经初始化示例代码，如需开发业务代码，只需要在handle方法中开发即可。
 
-![输入图片说明](https://static.oschina.net/uploads/img/201705/31233257_i2HN.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_i2HN.png "在这里输入图片标题")
 
 ### 7、一句话执行GlueHandler
 首先确定项目中已经接入GLUE（参考上文 “GLUE接入Example项目(xxl-glue-core-example)”，接入非常方便）；
@@ -189,7 +189,7 @@ Glue在第一次加载之后将会缓存在内存中，点击右侧 “清除缓
 清除缓存弹框中有一个输入框 "Witch APP", 输入接入方项目的AppName, 即可精确的灰度刷新该项目中的相应Glue。如果不输入, 则广播刷新所有项目中响应的Glue。
 
 
-![输入图片说明](https://static.oschina.net/uploads/img/201705/31235014_4t4f.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_4t4f.png "在这里输入图片标题")
 
 ### 9、如何Debug测试GlueHandler
 
@@ -355,7 +355,7 @@ public class DemoGlueHandler03 implements GlueHandler {
 
 ### 架构图
 
-![输入图片说明](https://static.oschina.net/uploads/img/201609/28120739_AEeQ.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_AEeQ.png "在这里输入图片标题")
 
 ##### 角色组成
 - GlueHandler: "可执行逻辑"GLUE的代码实现, 本质上是实现统一父接口的子类, 约定了公共方法以及公共的输入输出以便于与业务代码交互。
@@ -402,7 +402,7 @@ Groovy简介 : 用于 Java 虚拟机的一种敏捷的动态语言;
 
 ### 5.2、GlueHandler 执行步骤
 
-![输入图片说明](https://static.oschina.net/uploads/img/201609/28170939_xiE7.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_xiE7.png "在这里输入图片标题")
 
 接入方,执行托管在GLUE平台上的一个GlueHandler中的代码逻辑时, 执行步骤如下:
 
@@ -428,7 +428,7 @@ Glue中通过ZK实现了一套广播机制, 采用广播的方式进行触发主
 
 ### 5.5、缓存更新策略（异步 + 覆盖）
 
-![输入图片说明](https://static.oschina.net/uploads/img/201609/28201225_vF6z.png "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_vF6z.png "在这里输入图片标题")
 
 ##### 缓存对象
 Glue中缓存的对象是“groovyClassLoader”解析生成的GlueHandler实例。
@@ -466,7 +466,7 @@ GLUE底层基于Groovy实现，Groovy之前使用时曾经出现过频繁Full GC
 
 系统在执行 “groovy.lang.GroovyClassLoader.parseClass(groovyScript)” 进行groovy代码解析时，Groovy为了保证解析后执行的都是最新的脚本内容，每进行一次解析都会生成一次新命名的Class文件，如下图：
 
-![输入图片说明](https://static.oschina.net/uploads/img/201608/14200626_QHdj.jpg "在这里输入图片标题")
+![输入图片说明](https://raw.githubusercontent.com/xuxueli/xxl-glue/master/doc/images/img_QHdj.jpg "在这里输入图片标题")
 
 因此，如果Groovy类加载器设置为静态，当对同一段脚本均多次执行该方法时，会导致 “GroovyClassLoader” 装载的Class越来越多，从而导致PermGen被用满。
 
@@ -530,7 +530,4 @@ GLUE底层基于Groovy实现，Groovy之前使用时曾经出现过频繁Full GC
 
 ---
 ### 捐赠
-无论金额多少都足够表达您这份心意，非常感谢 ：）    [XXL系列捐赠记录](http://www.xuxueli.com/page/donate.html )
-
-微信：<img src="https://raw.githubusercontent.com/xuxueli/xxl-job/master/doc/images/donate-wechat.png" width="200">
-支付宝：<img src="https://raw.githubusercontent.com/xuxueli/xxl-job/master/doc/images/donate-alipay.jpg" width="200">
+无论金额多少都足够表达您这份心意，非常感谢 ：）      [前往捐赠](http://www.xuxueli.com/page/donate.html )
